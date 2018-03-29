@@ -107,9 +107,9 @@ public  class Netwrok  extends AsyncTask<String,Void,String> {
                     MainActivity.movieUrl.add(posterUrl);
 
 
-                    String trailerUrl="https://api.themoviedb.org/3/videos/"+movie.getInt("id")+"?api_key=4401cada7d6069e0e1e47e792a7768a0";
 
-                    MainActivity.movieTrailer.add(trailerUrl);
+
+
 
 
                     Log.i("s", posterUrl);

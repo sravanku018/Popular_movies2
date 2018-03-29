@@ -30,7 +30,7 @@ public  RecyclerAdapter(Context context)
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler,parent,false);
-    return new ViewHolder(view) ;
+        return new ViewHolder(view) ;
     }
 
     @Override
@@ -39,15 +39,15 @@ public  RecyclerAdapter(Context context)
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final MovieData movieData=new MovieData();
 
 
-                Intent intent=new Intent(mContext,MovieDetails.class);
+             Intent intent=new Intent(mContext,MovieDetails.class);
                 //  intent.putParcelableArrayListExtra("image_id",MainActivity.movieUrl.get(position));
                 intent.putExtra("id",position);
-
-
                 mContext.startActivity(intent);
+
+
+
             }
         });
     }
@@ -59,7 +59,7 @@ public  RecyclerAdapter(Context context)
         return MainActivity.images.size();
     }
 
-    public  class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
   public    ImageView imageView;
         public ViewHolder(View itemView) {
             super(itemView);

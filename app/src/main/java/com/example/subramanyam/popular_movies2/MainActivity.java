@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             builder.scheme("http")
                     .authority("api.themoviedb.org")
                     .path("/3/movie/popular")
-                    .appendQueryParameter("api_key", "4401cada7d6069e0e1e47e792a7768a0")
+                    .appendQueryParameter("api_key", "")
                     .build();
 
             String Url = builder.toString();
