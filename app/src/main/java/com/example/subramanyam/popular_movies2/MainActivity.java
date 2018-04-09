@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     static public ArrayList<String> movieUrl;
     static public MovieData movieData;
     static  public ArrayList<String> movieTrailer;
+    RecyclerAdapter recyclerAdapter;
 
 
     @Override
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         images = new ArrayList<MovieData>();
         movieUrl = new ArrayList<String>();
         movieTrailer=new ArrayList<>();
+        recyclerAdapter=new RecyclerAdapter(this);
 
 
         if (isInternetOn()) {
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             builder.scheme("http")
                     .authority("api.themoviedb.org")
                     .path("/3/movie/popular")
-                    .appendQueryParameter("api_key", "")
+                    .appendQueryParameter("api_key", "4401cada7d6069e0e1e47e792a7768a0")
                     .build();
 
             String Url = builder.toString();

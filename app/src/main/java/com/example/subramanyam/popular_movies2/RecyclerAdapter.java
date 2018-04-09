@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
@@ -36,15 +37,25 @@ public  RecyclerAdapter(Context context)
     @Override
     public void onBindViewHolder(ViewHolder holder,final int position) {
         Picasso.with(mContext).load(MainActivity.movieUrl.get(position)).fit().into(holder.imageView);
+        holder.imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+
+        });
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
              Intent intent=new Intent(mContext,MovieDetails.class);
+
                 //  intent.putParcelableArrayListExtra("image_id",MainActivity.movieUrl.get(position));
                 intent.putExtra("id",position);
+
                 mContext.startActivity(intent);
+
 
 
 
@@ -61,9 +72,11 @@ public  RecyclerAdapter(Context context)
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
   public    ImageView imageView;
+  public ImageButton imageButton;
         public ViewHolder(View itemView) {
             super(itemView);
             imageView=(ImageView) itemView.findViewById(R.id.movieImages);
+            imageButton=(ImageButton) itemView.findViewById(R.id.imageButton);
         }
     }
 }

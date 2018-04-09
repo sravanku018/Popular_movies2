@@ -24,7 +24,7 @@ public class MoviegridView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_moviegrid_view);
-        recyclerAdapter=new RecyclerAdapter(getApplicationContext());
+        recyclerAdapter=new RecyclerAdapter(this);
        recyclerView=(RecyclerView) findViewById(R.id.viewMovies);
 
         recyclerView.setHasFixedSize(true);

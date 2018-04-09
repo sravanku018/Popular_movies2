@@ -13,11 +13,12 @@
             android:contentDescription="@string/todo"
             android:scaleType="centerCrop" />
 
-        <TextView
-            android:id="@+id/textName"
+        <ImageButton
+            android:id="@+id/imageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-             />
+            android:contentDescription="@string/starb"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
 
 
 </LinearLayout>

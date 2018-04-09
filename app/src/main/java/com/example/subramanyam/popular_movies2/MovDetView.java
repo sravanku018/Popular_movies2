@@ -17,19 +17,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-public class MovDetView extends RecyclerView.Adapter<MovDetView.ViewHolder>{
+public class MovDetView extends RecyclerView.Adapter<MovDetView.ViewHolder> {
     private Context mContext;
-   private int id;
-
-
+    int id;
+// private static    TextView textView = null;
+  ArrayList<TrailerData> trailerData=new ArrayList<>();
 
 
     public LayoutInflater layoutInflater;
-    public MovDetView(Context context)
-    {
-        mContext=context;
-        this.layoutInflater=LayoutInflater.from(context);
+
+    public MovDetView(Context context, int PosID) {
+        mContext = context;
+        this.layoutInflater = LayoutInflater.from(context);
+        this.id = PosID;
     }
 
 
@@ -37,60 +39,67 @@ public class MovDetView extends RecyclerView.Adapter<MovDetView.ViewHolder>{
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
 
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.detals,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.detals, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder,final int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        holder.setIsRecyclable(false);
+
 
 
         Picasso.with(mContext).load(MainActivity.movieUrl.get(id)).fit().into(holder.imageView);
         holder.movTitle.setText(MainActivity.images.get(id).getTitle());
-        holder.movReview.setText(MainActivity.images.get(id).getOrginal_title());
+        holder.movReview.setText(MainActivity.images.get(id).getOverview());
         holder.movRating.setText(MainActivity.images.get(id).getVote_average());
         holder.movReleaseDate.setText(MainActivity.images.get(id).getRelease_date());
+      // holder.textView.setText(trailerData.get(id).getKey());
+
+        TrailerAsync1 trailerAsync1=new TrailerAsync1();
+        trailerAsync1.execute();
+
     }
-
-
 
 
     @Override
     public int getItemCount() {
-        return 0;
+        return id;
+
+
     }
 
-public static class ViewHolder extends RecyclerView.ViewHolder
-{
- ImageView imageView;
-TextView movTitle;
-TextView movReleaseDate;
-TextView movRating;
-TextView movReview;
-TextView textView;
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
+        TextView movTitle;
+        TextView movReleaseDate;
+        TextView movRating;
+        TextView movReview;
+        TextView textView;
 
 
-    public ViewHolder(View itemView) {
-        super(itemView);
-        imageView=(ImageView) itemView.findViewById(R.id.movieName);
-        movTitle=(TextView) itemView.findViewById(R.id.movieTitle);
-        movRating=(TextView) itemView.findViewById(R.id.userRating);
-        movReleaseDate=(TextView) itemView.findViewById(R.id.releaseDate);
-        movReview=(TextView) itemView.findViewById(R.id.overView);
-        textView=(TextView) itemView.findViewById(R.id.trailerD);
+        public ViewHolder(View itemView) {
+            super(itemView);
+            imageView = (ImageView) itemView.findViewById(R.id.movieName);
+            movTitle = (TextView) itemView.findViewById(R.id.movieTitle);
+            movRating = (TextView) itemView.findViewById(R.id.userRating);
+            movReleaseDate = (TextView) itemView.findViewById(R.id.releaseDate);
+            movReview = (TextView) itemView.findViewById(R.id.overView);
 
+
+
+        }
     }
-}
 
     public class TrailerAsync1 extends AsyncTask<String, Void, String> {
+
 
 
         @Override
         protected String doInBackground(String... strings) {
 
 
-
-            String url = "http://api.themoviedb.org/3/movie/" + MainActivity.images.get(id).getId() + "/videos?api_key=";
+              String url = "http://api.themoviedb.org/3/movie/" +MainActivity.images.get(id).getId() + "/videos?api_key=";
             Log.i("ja", String.valueOf(MainActivity.images.get(id).getId()));
 
 
@@ -109,6 +118,8 @@ TextView textView;
 
         @Override
         protected void onPostExecute(String results) {
+
+
             if (results != null) {
                 try {
                     JSONObject movies = new JSONObject(results);
@@ -127,6 +138,10 @@ TextView textView;
                         movie1.setKey(movie.getString("key"));
 
                         String text1 = "https://www.youtube.com/watch?v=" + movie1.getKey();
+                        final int N=4;
+                     // textView.setText(text1);
+
+
 
 
 
@@ -137,7 +152,9 @@ TextView textView;
                 }
 
 
+
+
             }
         }
-}
+    }
 }
