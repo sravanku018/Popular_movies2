@@ -1,55 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
 
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardBackgroundColor="@android:color/holo_purple"
+        app:cardCornerRadius="66dp"
+        app:cardElevation="0dp"
+        app:contentPadding="20dp">
 
-        <ImageView
-            android:id="@+id/movieName"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-
-            android:contentDescription="@string/todo" />
-
-    <TextView
-        android:id="@+id/movieTitle"
-        android:layout_width="77dp"
-        android:layout_height="wrap_content"
-
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="22dp"
-        android:text="@string/textview"
-        android:textSize="14sp" />
-
-    <TextView
-            android:id="@+id/overView"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            android:layout_marginTop="39dp"
-            android:fontFamily="sans-serif"
-            android:text="@string/textview"
-            android:textColor="@android:color/holo_green_dark"
-            android:textSize="14sp"
-            android:textStyle="italic" />
+            <TextView
+                android:id="@+id/reviewD"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/textview" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/userRating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        android:layout_marginTop="81dp"
-        android:text="@string/textview"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/releaseDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="27dp"
-        android:text="@string/textview"
-        android:textColor="@android:color/holo_blue_dark" />
+    </android.support.v7.widget.CardView>
 
 
 </LinearLayout>

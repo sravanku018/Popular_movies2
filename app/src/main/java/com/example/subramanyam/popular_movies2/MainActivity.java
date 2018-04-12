@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         movieData = new MovieData();
-        images = new ArrayList<MovieData>();
+        images=new ArrayList<>();
         movieUrl = new ArrayList<String>();
         movieTrailer=new ArrayList<>();
         recyclerAdapter=new RecyclerAdapter(this);
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             builder.scheme("http")
                     .authority("api.themoviedb.org")
                     .path("/3/movie/popular")
-                    .appendQueryParameter("api_key", "4401cada7d6069e0e1e47e792a7768a0")
+                    .appendQueryParameter("api_key", "")
                     .build();
 
             String Url = builder.toString();
@@ -97,30 +97,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-  /*  public class TrailerAsync extends AsyncTask<String,Void,String> {
 
-        @Override
-        protected String doInBackground(String... strings) {
-
-
-
-
-
-            GetExample example = new GetExample();
-            String response = null;
-            try {
-                response = example.run("https://api.themoviedb.org/3/movie/"+movieData.getId()+"?api_key=4401cada7d6069e0e1e47e792a7768a0");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            System.out.println(response);
-            Log.i("s",response);
-            return response;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-        }
-    }*/
 }

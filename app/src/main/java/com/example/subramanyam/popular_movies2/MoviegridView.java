@@ -27,7 +27,7 @@ public class MoviegridView extends AppCompatActivity {
         recyclerAdapter=new RecyclerAdapter(this);
        recyclerView=(RecyclerView) findViewById(R.id.viewMovies);
 
-        recyclerView.setHasFixedSize(true);
+
         recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         recyclerView.setAdapter(new RecyclerAdapter(this));
 

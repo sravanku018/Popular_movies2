@@ -9,6 +9,16 @@ import android.os.Parcelable;
 
 public class TrailerData implements Parcelable {
     String key;
+    String name;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
 
     public TrailerData()
     {
@@ -35,6 +45,7 @@ public void setKey(String key)
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.key);
+        parcel.writeString(this.name);
 
     }
     public static final Creator<TrailerData> CREATOR=new Creator<TrailerData>() {
