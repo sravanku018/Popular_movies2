@@ -17,14 +17,14 @@ public class MainActivity extends AppCompatActivity {
     static public ArrayList<String> movieUrl;
     static public MovieData movieData;
     static  public ArrayList<String> movieTrailer;
-    RecyclerAdapter recyclerAdapter;
+    static  public RecyclerAdapter recyclerAdapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        movieData = new MovieData();
+        movieData = new com.example.subramanyam.popular_movies2.MovieData();
         images=new ArrayList<>();
         movieUrl = new ArrayList<String>();
         movieTrailer=new ArrayList<>();
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             builder.scheme("http")
                     .authority("api.themoviedb.org")
                     .path("/3/movie/popular")
-                    .appendQueryParameter("api_key", "")
+                    .appendQueryParameter("api_key", "4401cada7d6069e0e1e47e792a7768a0")
                     .build();
 
             String Url = builder.toString();
@@ -53,8 +53,7 @@ public class MainActivity extends AppCompatActivity {
             } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
-         //   TrailerAsync trailerAsync=new TrailerAsync();
-          //  trailerAsync.execute();
+
 
         }
 

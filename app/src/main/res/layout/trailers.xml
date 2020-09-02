@@ -8,6 +8,6 @@
         android:id="@+id/trailerD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/textview"
-        android:autoLink="web"/>
+        android:autoLink="web"
+        android:text="@string/textview" />
 </LinearLayout>

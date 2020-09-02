@@ -7,13 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder> {
     private Context mContext;
    public static int id;
 // private static    TextView textView = null;
- public static ArrayList<String> trailerData=new ArrayList<>();
+
 
 
     public LayoutInflater layoutInflater;
@@ -30,6 +31,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
 
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.detals, parent, false);
+        ButterKnife.bind(this,view);
         return new ViewHolder(view);
     }
 
@@ -51,12 +53,12 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
     }
 
     public  class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textView;
+        @BindView(R.id.reviewD) TextView textView;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
-            textView=itemView.findViewById(R.id.reviewD);
+            ButterKnife.bind(this,itemView);
 
 
 

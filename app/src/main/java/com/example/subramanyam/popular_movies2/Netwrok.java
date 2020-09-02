@@ -116,7 +116,7 @@ public  class Netwrok  extends AsyncTask<String,Void,String> {
 
 
                     MainActivity.images.add(movie1);
-                    MoviegridView.recyclerAdapter.notifyDataSetChanged();
+                    MainActivity.recyclerAdapter.notifyDataSetChanged();
 
 
 

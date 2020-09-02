@@ -10,7 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 /**
  * Created by subramanyam on 22-03-2018.
@@ -35,15 +35,13 @@ public  RecyclerAdapter(Context context)
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder,final int position) {
-        Picasso.with(mContext).load(MainActivity.movieUrl.get(position)).fit().into(holder.imageView);
-        holder.imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                
-            }
+    public void onBindViewHolder(ViewHolder holder,  final int position) {
 
-        });
+        Glide.with(mContext).load(MainActivity.movieUrl.get(position)).into(holder.imageView);
+
+
+
+
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,7 +74,7 @@ public  RecyclerAdapter(Context context)
         public ViewHolder(View itemView) {
             super(itemView);
             imageView=(ImageView) itemView.findViewById(R.id.movieImages);
-            imageButton=(ImageButton) itemView.findViewById(R.id.imageButton);
+
         }
     }
 }

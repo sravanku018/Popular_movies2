@@ -1,3 +1,8 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <string-array name="pref_sort_order">
+        <item>@string/rating</item>
+        <item>@string/popular</item>
+        <item>@string/favorite</item>
+    </string-array>
 </resources>
